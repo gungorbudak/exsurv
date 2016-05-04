@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="A web resource for studying the survival contributions of exons across human cancers using RNA-sequencing data">
+        <meta name="author" content="Gungor Budak">
+        <title>Contact &ndash; ExSurv</title>
+        <link rel="stylesheet" href="assets/css/libs/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/libs/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/css/main.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">ExSurv</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/"><i class="fa fa-home"></i> Start</a></li>
+                        <li><a href="/docs.html"><i class="fa fa-book"></i> Docs</a></li>
+                        <li class="active"><a href="/contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
+                    </ul>
+                    <form class="navbar-form" role="search" method="GET" action="/">
+                        <div class="form-group" style="display:inline;">
+                            <div class="input-group input-group-custom">
+                                <input type="text" name="query" class="form-control" placeholder="Search for a gene using its symbol or Ensembl ID e.g. AGK" title="Enter a gene symbol or an Ensembl Gene ID" value="">
+                                <span class="input-group-btn" style="width:1%;">
+                                    <input type="text" name="pval" class="form-control" placeholder="p-value" value="0.05" title="Enter a p-value threshold" style="width: 9rem;">
+                                </span>
+                                <span class="input-group-btn" style="width:1%;">
+                                    <select class="form-control" name="cancer" title="Select your cancer of interest" style="width: 9rem;">
+                                        <option value="BRCA">BRCA - Breast invasive carcinoma</option>
+                                        <option value="GBM">GBM - Glioblastoma multiforme</option>
+                                        <option value="KIRP">KIRP - Kidney renal papillary cell carcinoma</option>
+                                        <option value="LIHC">LIHC - Liver hepatocellular carcinoma</option>
+                                    </select>
+                                </span>
+                                <span class="input-group-btn" style="width:1%;">
+                                    <button type="submit" class="btn btn-primary" title="Search for survival analysis plots for a gene">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1>Contact</h1>
+            <hr>
+            <ul class="list-unstyled list-relaxed">
+                <li>
+                    Sasan Hashemi, PhD student<br>
+                    hashemis at iu dot edu
+                </li>
+                <li>
+                    Gungor Budak, research scholar<br>
+                    gbudak at iupui dot edu
+                </li>
+                <li>
+                    Sarath C. Janga, PI<br>
+                    scjanga at iupui dot edu
+                </li>
+            </ul>
+            <h2>Bugs</h2>
+            <p>
+                Please issue bugs on our GitHub repository: <br>
+                <a href="https://github.com/gungorbudak/exsurv/issues" target="_blank">
+                    https://github.com/gungorbudak/exsurv/issues
+                </a>
+            </p>
+        </div>
+
+        <div class="container">
+            <div class="footer">
+                <hr>
+                <p class="text-muted">
+                    ExSurv: A web resource for studying the survival contributions of exons across human cancers using RNA-sequencing data
+                </p>
+            </div>
+        </div>
+
+        <script src="assets/js/libs/jquery-1.12.1.min.js" charset="utf-8"></script>
+        <script src="assets/js/libs/bootstrap.min.js" charset="utf-8"></script>
+        <script src="assets/js/libs/featherlight.min.js" charset="utf-8"></script>
+        <script src="assets/js/libs/spin.min.js" charset="utf-8"></script>
+        <script src="assets/js/libs/FileSaver.min.js" charset="utf-8"></script>
+        <script src="assets/js/main.js" charset="utf-8"></script>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-48281803-14', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </body>
+</html>

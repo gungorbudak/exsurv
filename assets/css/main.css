@@ -1,0 +1,49 @@
+body {
+    padding-top: 70px;
+}
+
+.ul, ul, .ol, ol {
+    padding-left: 2em;
+}
+
+@media (min-width: 768px) {
+    .navbar-form .input-group-custom {
+        padding-left: 10px;
+        display: table;
+    }
+}
+
+.table-results > thead > th {
+	overflow: hidden;
+    white-space: nowrap;
+}
+
+.table-results tbody > tr > td {
+    vertical-align: middle;
+}
+
+.list-relaxed li {
+    padding: 0px 0px 20px;
+}
+
+a.zoom-in {
+    cursor: -moz-zoom-in;
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -40px;
+    visibility: hidden;
+}
+
+.img-thumb {
+    height: 250px;
+}
+
+.footer {
+    padding: 0px 0px 50px;
+    margin: 20px 0px 0px 0px;
+}
