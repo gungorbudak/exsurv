@@ -4,12 +4,15 @@
 # usage Rscript surv.R <dataset in JSON format> <format>
 # e.g. Rscript surv.R dataset.json png
 # how to install a new package: install.packages('package_name', lib=c('/var/www/exsurv/html/app/libs'))
+# to upgrade required packages install.packages(c('survival', 'rjson', 'base64'), lib=c('/var/www/exsurv/html/app/libs'))
+# versions should be survival==3.1-11, rjson==0.2.20, base64==2.0 with R version 3.5.2
+
 
 # add local library directory to library paths
 .libPaths("/var/www/exsurv/html/app/libs")
 library(survival)
 library(rjson)
-# draw plot and return it's string
+# draw plot and return its string representation
 getPlot <- function(curves, title, fmt = 'png') {
     if (fmt == 'png') {
         library(base64)
@@ -47,7 +50,9 @@ fmt <- args[2]
 # survival analysis for each coming exon
 for (i in 1:length(data)) {
     # plot title
-    title <- paste(data[[i]]$info$exon_id, data[[i]]$info$cancer, sep=' / ')
+    title <- paste(data[[i]]$info$exon_id,
+        data[[i]]$info$cancer,
+        data[[i]]$info$classification, sep=' / ')
     # do the analysis and get survival curves
     curves <- survfit(Surv(time, event) ~ group, data=as.data.frame(data[[i]]$data));
     # get rid of data field
@@ -56,4 +61,3 @@ for (i in 1:length(data)) {
     data[[i]]['plot'] <- getPlot(curves, title, fmt)
 }
 cat(toJSON(data))
-

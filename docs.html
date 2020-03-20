@@ -4,60 +4,69 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="A web resource for studying the survival contributions of exons across human cancers using RNA-sequencing data">
+        <meta name="description" content="A web resource for prognostic analyses of exons across human cancers using clinical transcriptomes">
         <meta name="author" content="Gungor Budak">
         <title>Documentation &ndash; ExSurv</title>
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
         <link rel="stylesheet" href="assets/css/libs/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/libs/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/main.css">
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">ExSurv</a>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/"><i class="fa fa-home"></i> Start</a></li>
-                        <li class="active"><a href="/docs.html"><i class="fa fa-book"></i> Docs</a></li>
-                        <li><a href="/contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
-                    </ul>
-                    <form class="navbar-form" role="search" method="GET" action="/">
-                        <div class="form-group" style="display:inline;">
-                            <div class="input-group input-group-custom">
-                                <input type="text" name="query" class="form-control" placeholder="Search for a gene using its symbol or Ensembl ID e.g. AGK" title="Enter a gene symbol or an Ensembl Gene ID" value="">
-                                <span class="input-group-btn" style="width:1%;">
-                                    <input type="text" name="pval" class="form-control" placeholder="p-value" value="0.05" title="Enter a p-value threshold" style="width: 9rem;">
-                                </span>
-                                <span class="input-group-btn" style="width:1%;">
-                                    <select class="form-control" name="cancer" title="Select your cancer of interest" style="width: 9rem;">
-                                        <option value="BRCA">BRCA - Breast invasive carcinoma</option>
-                                        <option value="GBM">GBM - Glioblastoma multiforme</option>
-                                        <option value="KIRP">KIRP - Kidney renal papillary cell carcinoma</option>
-                                        <option value="LIHC">LIHC - Liver hepatocellular carcinoma</option>
-                                    </select>
-                                </span>
-                                <span class="input-group-btn" style="width:1%;">
-                                    <button type="submit" class="btn btn-primary" title="Search for survival analysis plots for a gene">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </form>
-                </div><!--/.nav-collapse -->
+    <!-- Navigation -->
+    <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light mb-4">
+      <a class="navbar-brand" href="/">ExSurv</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <!-- <i class="fa fa-home"></i> -->
+                Start
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/docs.html">
+                <!-- <i class="fa fa-book"></i> -->
+                Docs
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">
+                <!-- <i class="fa fa-envelope"></i> -->
+                Contact
+              </a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" style="flex-grow: 1;">
+          <div class="input-group" style="flex-grow: 1;">
+            <input type="text" name="query" class="form-control form-control-sm" style="flex-grow: 1;" placeholder="Search for a gene using its symbol or Ensembl ID e.g. XIST or ENSG00000229807" title="Enter a gene symbol or an Ensembl Gene ID" value="">
+            <input type="text" name="pval" class="form-control form-control-sm" style="flex: 0 1 4em;" placeholder="p-value" value="0.05" title="p-value threshold for survival analysis results">
+            <select class="form-control form-control-sm custom-select custom-select-sm" style="flex: 0 1 6em;" name="cancer" title="Cancer type">
+                <option value="BRCA">BRCA - Breast invasive carcinoma</option>
+                <option value="GBM" selected="selected">GBM - Glioblastoma multiforme</option>
+                <option value="KIRP">KIRP - Kidney renal papillary cell carcinoma</option>
+                <option value="LIHC">LIHC - Liver hepatocellular carcinoma</option>
+            </select>
+            <select class="form-control form-control-sm custom-select custom-select-sm" style="flex: 0 1 6em;" name="classification" title="Classification method for expression values">
+              <option value="Median" selected="selected">Median</option>
+              <option value="Quartile">Quartile</option>
+            </select>
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-primary btn-sm button-search" title="Search for survival analysis plots for a gene">
+                <i class="fa fa-search"></i>
+            </button>
             </div>
-        </nav>
+          </div>
+        </form>
+      </div>
+    </nav>
+    <!-- /Navigation -->
 
         <div class="container">
-            <h1>Docs</h1>
+            <h1>Documentation</h1>
             <hr>
             <div class="row">
                 <div class="col-md-9">
@@ -69,7 +78,7 @@
                     <a class="anchor" name="usage"></a>
                     <h2>Usage</h2>
                     <p class="text-justify">
-                        Using the form in the navigation bar across this website, it is possible to query our database for survival contributions of exons given a gene symbol or Ensembl gene ID, a p-value threshold (defaulting to 0.05) and a cancer. On search, the results (if there is any available under these conditions) are listed as a table where each row corresponds to an exon and it has exon ID, transcript ID, gene ID, gene symbol, p-value, plot and export options columns. The identifiers are linked to their sources which help users to investigate more on these results. The plots can be zoom in by clicking on them or can be exported as SVG. We are also providing an export option for downloading the raw dataset per exon.
+                        Using the form in the navigation bar across this website, it is possible to query our database for survival contributions of exons given a gene symbol or Ensembl gene ID, a p-value threshold (defaulting to 0.05), a cancer type (defaulting to GBM - Glioblastoma multiforme) and a classification method (defaulting to Median). After search is done, the results (if there is any available under these conditions) are listed as a table where each row corresponds to an exon and it has exon ID, transcript ID, gene ID, gene symbol, hazard ratio, hazard ratio p-value, hazard ratio q-value, plot and export options columns. The identifiers (IDs) and the symbol are linked to their sources which help users to investigate more on these results. The plots can be zoomed in by clicking on them or can be exported as SVG. We are also providing an export option for downloading the raw dataset per exon as well as <a href="exsurv_db.sql.gz" target="_blank">the entire MySQL database is available as an SQL dump via this link (in SQL format, compressed size ~2.5GB, uncompressed size ~12.5GB)</a>. Please see Figure S1 in our publication for the database schema.
                     </p>
                     <a class="anchor" name="datasets"></a>
                     <h2>Datasets</h2>
@@ -79,12 +88,12 @@
                     <a class="anchor" name="preprocessing"></a>
                     <h2>Preprocessing</h2>
                     <p class="text-justify">
-                        The raw RNA-seq reads are downloaded from dbGaP. They are aligned against human genome 38 using HISAT. The alignment files are given to StringTie for exon expression quantification. After the expression values are obtained, the survival analysis is done in (survival package) R using Kaplan–Meier estimator and log-rank test. The final results are imported to a MySQL database.
+                        The raw RNA-seq reads are downloaded from dbGaP and they are aligned against human genome 38 using HISAT (Hierarchical Indexing for Spliced Alignment of Transcripts). Next, the alignment files are given to StringTie for exon expression quantification. After the expression values are obtained, we classified the exons into "High" and "Low" expressed groups using "Median" approach where the exons above the median expression value are called "High" and below ones called "Low". We also did the classification based on top and bottom quartiles and named "High" and "Low" expressed, respectively. Next, the survival analysis is done on these two different classifications separately in R (survival package) using Kaplan–Meier estimator and log-rank test as well as Cox proportional hazard ratio. Since the final significance values were very similar for the two methods, we are only showing p-value and q-values (obtained using Benjamini-Hochberg correction method) from Cox proportional hazard ratio analysis. The final result tables are imported to a MySQL database.
                     </p>
                     <a class="anchor" name="web-server"></a>
                     <h2>Web server</h2>
                     <p class="text-justify">
-                        The web server consists of a frontend and a backend. The frontend is interacting with user thourgh a simple form where the user enters a gene symbol or an Ensembl gene ID, p-value threshold and a cancer. It is also visualizing results after the search and providing export options for obtained results. The backend is responsible for querying the database, running R to visulize query results and sending the survival plots to the frontend.
+                        The web server consists of a frontend and a backend. The frontend is interacting with user through a simple form where the user enters a gene symbol or an Ensembl gene ID, p-value threshold, a cancer type and a classification method. It also visualizes the results after the search and provides export options for obtained results. The backend is responsible for querying the database, running R to visualize query results (to obtain survival plots) and sending the results to the frontend.
                     </p>
                 </div>
                 <div class="col-md-3">
@@ -104,13 +113,13 @@
             <div class="footer">
                 <hr>
                 <p class="text-muted">
-                    ExSurv: A web resource for studying the survival contributions of exons across human cancers using RNA-sequencing data
+                    ExSurv: A web resource for prognostic analyses of exons across human cancers using clinical transcriptomes
                 </p>
             </div>
         </div>
 
-        <script src="assets/js/libs/jquery-1.12.1.min.js" charset="utf-8"></script>
-        <script src="assets/js/libs/bootstrap.min.js" charset="utf-8"></script>
+        <script src="assets/js/libs/jquery-3.4.1.min.js" charset="utf-8"></script>
+        <script src="assets/js/libs/bootstrap.bundle.min.js" charset="utf-8"></script>
         <script src="assets/js/libs/featherlight.min.js" charset="utf-8"></script>
         <script src="assets/js/libs/spin.min.js" charset="utf-8"></script>
         <script src="assets/js/libs/FileSaver.min.js" charset="utf-8"></script>

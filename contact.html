@@ -4,57 +4,66 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="A web resource for studying the survival contributions of exons across human cancers using RNA-sequencing data">
+        <meta name="description" content="A web resource for prognostic analyses of exons across human cancers using clinical transcriptomes">
         <meta name="author" content="Gungor Budak">
         <title>Contact &ndash; ExSurv</title>
+        <link rel="shortcut icon" href="assets/img/favicon.png" type="image/png">
         <link rel="stylesheet" href="assets/css/libs/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/libs/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/main.css">
     </head>
     <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">ExSurv</a>
-                </div>
-                <div id="navbar" class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/"><i class="fa fa-home"></i> Start</a></li>
-                        <li><a href="/docs.html"><i class="fa fa-book"></i> Docs</a></li>
-                        <li class="active"><a href="/contact.html"><i class="fa fa-envelope"></i> Contact</a></li>
-                    </ul>
-                    <form class="navbar-form" role="search" method="GET" action="/">
-                        <div class="form-group" style="display:inline;">
-                            <div class="input-group input-group-custom">
-                                <input type="text" name="query" class="form-control" placeholder="Search for a gene using its symbol or Ensembl ID e.g. AGK" title="Enter a gene symbol or an Ensembl Gene ID" value="">
-                                <span class="input-group-btn" style="width:1%;">
-                                    <input type="text" name="pval" class="form-control" placeholder="p-value" value="0.05" title="Enter a p-value threshold" style="width: 9rem;">
-                                </span>
-                                <span class="input-group-btn" style="width:1%;">
-                                    <select class="form-control" name="cancer" title="Select your cancer of interest" style="width: 9rem;">
-                                        <option value="BRCA">BRCA - Breast invasive carcinoma</option>
-                                        <option value="GBM">GBM - Glioblastoma multiforme</option>
-                                        <option value="KIRP">KIRP - Kidney renal papillary cell carcinoma</option>
-                                        <option value="LIHC">LIHC - Liver hepatocellular carcinoma</option>
-                                    </select>
-                                </span>
-                                <span class="input-group-btn" style="width:1%;">
-                                    <button type="submit" class="btn btn-primary" title="Search for survival analysis plots for a gene">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </form>
-                </div><!--/.nav-collapse -->
+    <!-- Navigation -->
+    <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light mb-4">
+      <a class="navbar-brand" href="/">ExSurv</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <!-- <i class="fa fa-home"></i> -->
+                Start
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/docs.html">
+                <!-- <i class="fa fa-book"></i> -->
+                Docs
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/contact.html">
+                <!-- <i class="fa fa-envelope"></i> -->
+                Contact
+              </a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" style="flex-grow: 1;">
+          <div class="input-group" style="flex-grow: 1;">
+            <input type="text" name="query" class="form-control form-control-sm" style="flex-grow: 1;" placeholder="Search for a gene using its symbol or Ensembl ID e.g. XIST or ENSG00000229807" title="Enter a gene symbol or an Ensembl Gene ID" value="">
+            <input type="text" name="pval" class="form-control form-control-sm" style="flex: 0 1 4em;" placeholder="p-value" value="0.05" title="p-value threshold for survival analysis results">
+            <select class="form-control form-control-sm custom-select custom-select-sm" style="flex: 0 1 6em;" name="cancer" title="Cancer type">
+                <option value="BRCA">BRCA - Breast invasive carcinoma</option>
+                <option value="GBM" selected="selected">GBM - Glioblastoma multiforme</option>
+                <option value="KIRP">KIRP - Kidney renal papillary cell carcinoma</option>
+                <option value="LIHC">LIHC - Liver hepatocellular carcinoma</option>
+            </select>
+            <select class="form-control form-control-sm custom-select custom-select-sm" style="flex: 0 1 6em;" name="classification" title="Classification method for expression values">
+              <option value="Median" selected="selected">Median</option>
+              <option value="Quartile">Quartile</option>
+            </select>
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-primary btn-sm button-search" title="Search for survival analysis plots for a gene">
+                <i class="fa fa-search"></i>
+            </button>
             </div>
-        </nav>
+          </div>
+        </form>
+      </div>
+    </nav>
+    <!-- /Navigation -->
 
         <div class="container">
             <h1>Contact</h1>
@@ -73,6 +82,13 @@
                     scjanga at iupui dot edu
                 </li>
             </ul>
+            <h2>Citation</h2>
+            <p>
+                Please cite the following reference when refering to ExSurv in your studies:
+            </p>
+            <p>
+                Hashemikhabir, S., Budak, G., & Janga, S. C. (2016). <a href="https://journals.sagepub.com/doi/full/10.4137/CIN.S39367" target="_blank">ExSurv: A Web Resource for Prognostic Analyses of Exons Across Human Cancers Using Clinical Transcriptomes</a>. Cancer Informatics, 15(Suppl 2), 17.
+            </p>
             <h2>Bugs</h2>
             <p>
                 Please issue bugs on our GitHub repository: <br>
@@ -86,13 +102,13 @@
             <div class="footer">
                 <hr>
                 <p class="text-muted">
-                    ExSurv: A web resource for studying the survival contributions of exons across human cancers using RNA-sequencing data
+                    ExSurv: A web resource for prognostic analyses of exons across human cancers using clinical transcriptomes
                 </p>
             </div>
         </div>
 
-        <script src="assets/js/libs/jquery-1.12.1.min.js" charset="utf-8"></script>
-        <script src="assets/js/libs/bootstrap.min.js" charset="utf-8"></script>
+        <script src="assets/js/libs/jquery-3.4.1.min.js" charset="utf-8"></script>
+        <script src="assets/js/libs/bootstrap.bundle.min.js" charset="utf-8"></script>
         <script src="assets/js/libs/featherlight.min.js" charset="utf-8"></script>
         <script src="assets/js/libs/spin.min.js" charset="utf-8"></script>
         <script src="assets/js/libs/FileSaver.min.js" charset="utf-8"></script>
