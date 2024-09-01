@@ -4,4 +4,4 @@ ExSurv is a web resource for prognostic analyses of exons across human cancers u
 
 # Web server
 
-ExSurv is running on https://exsurv.soic.iupui.edu.
+ExSurv is running on [https://exsurv.soic.iupui.edu](https://exsurv.luddy.indianapolis.iu.edu/).
